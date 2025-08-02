@@ -18,18 +18,31 @@ namespace Assignment
             #endregion
 
             #region Q02
-            IAuthenticationService authService = new BasicAuthenticationService();
+            //IAuthenticationService authService = new BasicAuthenticationService();
 
-            string username = "admin";
-            string password = "1234";
-            string role = "Admin";
+            //string username = "admin";
+            //string password = "1234";
+            //string role = "Admin";
 
-            bool isAuthenticated = authService.AuthenticateUser(username, password);
-            bool isAuthorized = authService.AuthorizeUser(username, role);
+            //bool isAuthenticated = authService.AuthenticateUser(username, password);
+            //bool isAuthorized = authService.AuthorizeUser(username, role);
 
-            Console.WriteLine($"Authenticated: {isAuthenticated}"); 
-            Console.WriteLine($"Authorized: {isAuthorized}");       
+            //Console.WriteLine($"Authenticated: {isAuthenticated}"); 
+            //Console.WriteLine($"Authorized: {isAuthorized}");       
 
+            #endregion
+
+            #region Q03
+            string recipient = "user@example.com";
+            string message = "Welcome to our platform!";
+
+            INotificationService emailService = new EmailNotificationService();
+            INotificationService smsService = new SmsNotificationService();
+            INotificationService pushService = new PushNotificationService();
+
+            emailService.SendNotification(recipient, message);
+            smsService.SendNotification(recipient, message);
+            pushService.SendNotification(recipient, message);
             #endregion
         }
     }
